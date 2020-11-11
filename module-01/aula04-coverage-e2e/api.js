@@ -13,7 +13,7 @@ const routes = {
         // Request é um async iterator!
         for await (const data of req) {
             const user = JSON.parse(data);
-            if (user.username === MOCKED_USER.username || user.password === MOCKED_USER.password) {
+            if (user.username === MOCKED_USER.username && user.password === MOCKED_USER.password) {
                 res.write('Logged in successfully');
                 res.end();
                 return;

@@ -34,7 +34,7 @@ describe('API suite test', () => {
         it('should unauthorize when the credentials are invalid and return HTTP Status 401', async () => {
             const response = await request(app)
                 .post('/login')
-                .send({ username: 'admin', password: 'admin' })
+                .send({ username: 'Anonimy', password: 'admin' })
                 .expect(401)
             assert.ok(response.unauthorized);
             assert.strictEqual(response.text, 'Invalid username or password');
