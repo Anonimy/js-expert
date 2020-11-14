@@ -3,7 +3,6 @@ const { describe, it, before, beforeEach, afterEach } = require('mocha');
 const { expect } = require('chai');
 const sinon = require('sinon');
 const CarService = require('../../src/service/car');
-const { sandbox } = require('sinon');
 const mocks = {
     validCarCategory: require('../mocks/valid-carCategory.json'),
     validCar: require('../mocks/valid-car.json'),
