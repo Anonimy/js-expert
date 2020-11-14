@@ -1,0 +1,23 @@
+[
+    {
+        "id": "f9527446-e066-45cc-8ee0-fbb12c3b99a1",
+        "name": "Silverado",
+        "releaseYear": 2020,
+        "available": true,
+        "gasAvailable": true
+    },
+    {
+        "id": "692f0d6d-a929-4fa9-812d-e916fa1b71e9",
+        "name": "Grand Caravan",
+        "releaseYear": 2020,
+        "available": true,
+        "gasAvailable": true
+    },
+    {
+        "id": "81e9c0ac-be4d-4452-9904-3226d1c1d6b7",
+        "name": "Colorado",
+        "releaseYear": 2020,
+        "available": true,
+        "gasAvailable": true
+    }
+]
