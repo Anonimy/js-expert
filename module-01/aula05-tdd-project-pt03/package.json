@@ -2,11 +2,12 @@
   "name": "aula05-tdd-project-pt03",
   "version": "1.0.0",
   "description": "As a system user\r In order to get an available car in a specific category\r Given a car category containing 3 different cars\r When I check if there's a car available\r Then it should choose randomly a car from the category chosen",
-  "main": "index.js",
+  "main": "src/api.js",
   "directories": {
     "test": "test"
   },
   "scripts": {
+    "start": "node ./src/api.js",
     "test": "npx mocha -w --parallel test/**/*.test.js",
     "test:cov": "npx nyc mocha --exit --check-leaks --no-parallel test/**/*.test.js",
     "seed": "node ./seed"
@@ -19,6 +20,7 @@
     "faker": "^5.1.0",
     "mocha": "^8.2.1",
     "nyc": "^15.1.0",
-    "sinon": "^9.2.1"
+    "sinon": "^9.2.1",
+    "supertest": "^6.0.1"
   }
 }
