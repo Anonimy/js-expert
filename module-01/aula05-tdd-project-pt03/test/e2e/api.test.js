@@ -1,4 +1,4 @@
-const { describe, it, afterEach } = require('mocha');
+const { describe, it, afterEach, beforeEach } = require('mocha');
 const { expect } = require('chai');
 const request = require('supertest');
 const sinon = require('sinon');
