@@ -44,7 +44,7 @@ describe('API Suite tests', () => {
             expect(response.body).to.be.deep.equal(customers);
         });
 
-        it('should filter by id when an "/:id" parameter is passed', async () => {
+        it('should filter by id when an "?id=:id" parameter is passed', async () => {
             const spy = sandbox.spy(CustomerService.prototype, CustomerService.prototype.find.name);
             const stub = sandbox.stub(BaseRepository.prototype, BaseRepository.prototype.find.name).resolves(mocks.validCustomer);
             const response = await request(app)
@@ -69,7 +69,7 @@ describe('API Suite tests', () => {
             expect(response.body).to.be.deep.equal(carCategories);
         });
 
-        it('should filter by id when an "/:id" parameter is passed', async () => {
+        it('should filter by id when an "?id=:id" parameter is passed', async () => {
             const spy = sandbox.spy(CarCategoryService.prototype, CarCategoryService.prototype.find.name);
             const stub = sandbox.stub(BaseRepository.prototype, BaseRepository.prototype.find.name).resolves(mocks.validCarCategory);
             const response = await request(app)
@@ -113,6 +113,28 @@ describe('API Suite tests', () => {
         it('should return HTTP Status 400 if the client does not send a payload', async () => {
             await request(app)
                 .post('/car/rent')
+                .expect(400);
+        });
+
+        it('should return HTTP Status 400 if the client does not send a required field', async () => {
+            await request(app)
+                .post('/car/rent')
+                .send({
+                    customer: mocks.validCustomer.id,
+                    carCategory: mocks.validCarCategory.id
+                    // missing numberOfDays
+                })
+                .expect(400);
+        });
+
+        it('should return HTTP Status 400 if the client sends an invalid numberOfDays', async () => {
+            await request(app)
+                .post('/car/rent')
+                .send({
+                    customer: mocks.validCustomer.id,
+                    carCategory: mocks.validCarCategory.id,
+                    numberOfDays: -1
+                })
                 .expect(400);
         });
     });
