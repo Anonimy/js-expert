@@ -1,0 +1,31 @@
+{
+  "name": "aula14-pt03-esmodules-internationalization",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "start-dev": "npx nodemon --ignore database.json --exec node --experimental-json-modules --experimental-top-level-await src/index.js",
+    "test": "npx mocha -w --parallel test/**/*.test.js",
+    "test:cov": "npx nyc mocha -r reify --exit --check-leaks --no-parallel test/**/*.test.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "engines": {
+    "node": "14.3.0"
+  },
+  "dependencies": {
+    "chalk": "^4.1.0",
+    "chalk-table": "^1.0.2",
+    "draftlog": "^1.0.12"
+  },
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "mocha": "^8.2.1",
+    "nodemon": "^2.0.6",
+    "nyc": "^15.1.0",
+    "reify": "^0.20.12",
+    "sinon": "^9.2.1"
+  }
+}
