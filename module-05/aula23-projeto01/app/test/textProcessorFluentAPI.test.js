@@ -57,28 +57,63 @@ describe('TextProcessorFluentAPI', () => {
 
     it('removeEmptyCharacters', () => {
         const content = [
-            'Xuxa da Silva',
-            ' brasileira',
-            ' casada',
-            ' CPF 235.743.420-12',
-            ' residente e\ndomiciliada a Rua dos bobos',
-            ' zero',
-            ' bairro Alphaville',
-            ' São Paulo.',
+            [
+                'Xuxa da Silva',
+                ' brasileira',
+                ' casada',
+                ' CPF 235.743.420-12',
+                ' residente e\ndomiciliada a Rua dos bobos',
+                ' zero',
+                ' bairro Alphaville',
+                ' São Paulo.',
+            ]
         ]
         const expected = [
-            'Xuxa da Silva',
-            'brasileira',
-            'casada',
-            'CPF 235.743.420-12',
-            'residente edomiciliada a Rua dos bobos',
-            'zero',
-            'bairro Alphaville',
-            'São Paulo.',
+            [
+                'Xuxa da Silva',
+                'brasileira',
+                'casada',
+                'CPF 235.743.420-12',
+                'residente edomiciliada a Rua dos bobos',
+                'zero',
+                'bairro Alphaville',
+                'São Paulo.',
+            ]
         ]
         const result = new TextProcessorFluentAPI(content)
             .removeEmptyCharacters()
             .build()
+        expect(result).to.be.deep.equal(expected)
+    })
+
+    it('mapPerson', () => {
+        const content = [
+            [
+                'Xuxa da Silva',
+                'brasileira',
+                'casada',
+                'CPF 235.743.420-12',
+                'residente edomiciliada a Rua dos bobos',
+                'zero',
+                'bairro Alphaville',
+                'São Paulo.',
+            ]
+        ]
+        const result = new TextProcessorFluentAPI(content)
+            .mapPerson()
+            .build()
+        const expected = [
+            {
+                nome: 'Xuxa da Silva',
+                nacionalidade: 'Brasileira',
+                estadoCivil: 'Casada',
+                documento: '23574342012',
+                rua: 'Rua dos bobos',
+                numero: 'zero',
+                bairro: 'Alphaville',
+                estado: 'São Paulo',
+            }
+        ]
         expect(result).to.be.deep.equal(expected)
     })
 })
