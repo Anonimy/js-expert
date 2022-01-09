@@ -1,0 +1,22 @@
+{
+  "name": "aula03-template-method",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "start": "node src/index.js",
+    "test": "cross-env NODE_OPTIONS=--experimental-vm-modules npx jest --runInBand --config ./jest.config.js",
+    "test:watch": "npm test -- --watch",
+    "test:cov": "npm test -- --coverage"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "jest": "^26.6.3"
+  },
+  "dependencies": {
+    "cross-env": "^7.0.3"
+  }
+}
